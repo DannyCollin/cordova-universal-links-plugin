@@ -158,7 +158,7 @@ function isDataTagForUniversalLinks(data) {
   var dataHost = data[0]['$']['android:host'];
   var dataScheme = data[0]['$']['android:scheme'];
   var hostIsSet = dataHost != null && dataHost.length > 0;
-  var schemeIsSet = dataScheme != null && dataScheme.length > 0;
+  var schemeIsSet = dataScheme != null && dataScheme.length > 0 && dataScheme !== "msauth"; // prevent this plugin to remove MSAL BrowserTabActivity intent
 
   return hostIsSet && schemeIsSet;
 }
